@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import bodyParser from "body-parser";
 import express from "express";
 
@@ -14,13 +16,13 @@ app.get("/", async (req, res) => {
   res.json({ Hello: "World" });
 });
 
-app.ws('/echo', function(ws, req){
-	ws.on('message', function(msg){
+app.ws('/echo', function(ws: any, req: any){
+	ws.on('message', function(msg: any){
 		ws.send(msg);
 	});
 });
 
-app.use(function(err, req, res, next) {
+app.use(function(err: any, req: any, res: any, next: any) {
 	console.error('ERROR');
 	console.error(err.stack);
 	console.error(err);
